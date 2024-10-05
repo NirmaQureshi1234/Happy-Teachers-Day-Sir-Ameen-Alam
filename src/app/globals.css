@@ -1,42 +1,90 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* src/styles/global.css */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  background-image: url('/pic.gif'); /* Optional background image */
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  text-align: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 10px;
+}
+
+.background {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 500px; /* Responsive width */
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+input {
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #0070f3;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 300px; /* Limiting input size for larger screens */
+}
+
+button {
+  padding: 10px;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px; /* Button width is responsive */
+}
+
+button:hover {
+  background-color: #005bb5;
+}
+
+.message {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+  .message {
+      font-size: 1.2rem; /* Smaller font size for small screens */
+  }
+
+  .background {
+      padding: 15px; /* Adjust padding for smaller screens */
+  }
+
+  input, button {
+      padding: 8px; /* Smaller input and button padding */
   }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+@media (max-width: 400px) {
+  .container {
+      padding: 5px; /* Less padding for very small screens */
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  input, button {
+      padding: 6px; /* Even smaller input and button padding */
+  }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  .message {
+      font-size: 1rem; /* Further reduce message font size */
   }
 }
